@@ -14,6 +14,7 @@ from apps.embedding import *
 from apps.vector import *
 from apps.retriever import load_faiss_index,load_metadata,embed_query,search_documents,retrieve_context
 from apps.gene import gene_ans, build_prompt,load_llm
+from apps.embedding import generate_embeddings
 
 
 
@@ -87,16 +88,16 @@ def main():
     print("Embedding Dimension:", len(vector))
     print(vector[:10]) ''' 
 
-    '''documents = load_docu(
+    documents = load_docu(
         "data/processed/documents.json"
     )
     documents = documents[:100]
 
     embeddings = generate_embeddings(documents)
 
-    save_embeddings(embeddings)'''
+    save_embeddings(embeddings)
 
-    '''embeddings = load_embeddings()
+    embeddings = load_embeddings()
 
     vectors, metadata = extract_vectors(
         embeddings
@@ -113,7 +114,7 @@ def main():
 
     save_index(index)
 
-    print("FAISS Index Created")'''
+    print("FAISS Index Created")
 
 
     '''index = load_faiss_index()
@@ -157,7 +158,7 @@ def main():
     
 
 
-    print("=" * 70)
+    '''print("=" * 70)
     print("PatchContext - FastAPI Repository RAG")
     print("=" * 70)
 
@@ -218,9 +219,45 @@ def main():
         print("Gemini Answer")
         print("=" * 80)
 
-        print(answer)
+        print(answer)'''
 
-  
+    commits = load_json("data/raw/commits.json")
+    pull_requests = load_json("data/raw/pull_requests.json")
+    issues = load_json("data/raw/issues.json")
+
+    # Clean the data
+    cleaned_commits = clean_commit_data(commits)
+    cleaned_prs = clean_pull_request_data(pull_requests)
+    cleaned_issues = clean_issue_data(issues)
+
+    # Merge into one document list
+    documents = merge_docu(
+        cleaned_commits,
+        cleaned_prs,
+        cleaned_issues
+    )
+
+    print(f"Total Documents: {len(documents)}")
+
+    # Save processed documents
+    save_raw_data(
+        documents,
+        "data/processed/documents.json"
+    )
+
+    print("documents.json regenerated successfully!")
+
+
+    '''documents = load_json("data/processed/documents.json")
+
+    embeddings = generate_embeddings(documents)
+
+    save_embeddings(
+        embeddings,
+        "data/embeddings/embeddings.pkl"
+    )
+
+    print("Embeddings saved successfully!")'''
 
 
 

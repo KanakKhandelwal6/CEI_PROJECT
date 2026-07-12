@@ -1,0 +1,52 @@
+question,ground_truth
+What changed in version 0.138.2?,Release notes were updated for version 0.138.2.
+What changed in version 0.138.1?,Release notes were updated for version 0.138.1.
+Who updated latest-changes?,Sebastián Ramírez updated latest-changes.
+Which PR updated issue-manager?,PR #15833 updated issue-manager.
+Summarize issue-manager updates.,The issue-manager package was updated across multiple commits.
+Show recent commits.,Recent commits include release notes updates and maintenance changes.
+Who authored the latest release notes update?,github-actions[bot] authored the release notes update.
+What changes were made to authentication?,Authentication dependencies were added to app.frontend().
+Which PR added frontend dependencies?,PR #15908 added frontend dependencies.
+What was fixed in latest-changes checkout?,The checkout target in latest-changes was fixed.
+Show cookie authentication related commits.,Cookie authentication support was added for app.frontend().
+What changes were made to translations?,Translation files for multiple languages were updated.
+Who updated Hindi translations?,Hindi translation files were updated through translation commits.
+Which commits updated documentation?,Release notes and documentation files were updated.
+Show release related commits.,Recent release commits updated version numbers and release notes.
+What version was released recently?,Recent releases include versions such as 0.138.2.
+Who authored issue-manager updates?,Sebastián Ramírez authored the issue-manager updates.
+What frontend improvements were added?,Frontend dependency support was added.
+Show dependency related commits.,Dependency updates include frontend dependency support.
+Which commits updated GitHub Actions?,GitHub Actions automated release note updates.
+Show recent pull requests.,Recent pull requests include frontend dependency support and issue-manager updates.
+Which PR updated latest-changes?,PR #15926 updated latest-changes.
+Summarize release notes updates.,Release notes were updated for several recent releases.
+Show issue related updates.,Recent issue-related updates include issue-manager improvements.
+Which commits modified app.frontend?,Recent commits added dependency support to app.frontend().
+Who created the latest pull request?,Recent pull requests were created by repository contributors including Sebastián Ramírez.
+Show automation related commits.,Automation commits updated release notes and contributor information.
+What changed in release 0.138.0?,Release-related updates included documentation and version changes.
+Which commits updated contributors?,Contributor and expert information was updated.
+Show expert updates.,FastAPI People expert lists were updated.
+Who updated contributor information?,github-actions[bot] updated contributor information.
+What documentation files changed?,Release notes and translation documentation changed.
+Show localization updates.,Localization commits updated translation files.
+What languages were updated?,Translation updates included Hindi and other languages.
+What recent maintenance work was done?,Maintenance work included release note updates and dependency updates.
+Show version update commits.,Version update commits modified release information.
+Which commits mention frontend?,Frontend dependency support commits mention app.frontend().
+Show translation commits.,Translation commits updated localized documentation.
+Which commits mention issue-manager?,Issue-manager version updates were committed.
+What dependency changes were introduced?,Dependency injection support for app.frontend() was introduced.
+Show release automation commits.,Release automation updated release notes automatically.
+Who maintains release notes?,Release notes are frequently updated by github-actions[bot].
+What improvements were added recently?,"Recent improvements include frontend dependencies, issue-manager updates and release maintenance."
+Summarize the latest repository activity.,"Recent activity includes releases, dependency updates, translations and maintenance."
+Which PR updated cookie authentication?,PR #15908 introduced dependency support for authentication.
+Show recent documentation updates.,Documentation updates include release notes and translations.
+What commits mention translations?,Translation commits updated localized files.
+Who worked on frontend dependencies?,Sebastián Ramírez contributed frontend dependency improvements.
+Summarize dependency updates.,Dependency support was improved for app.frontend().
+Show recent maintenance commits.,"Maintenance commits updated release notes, contributors and tooling."
+What recent fixes were made?,Recent fixes include latest-changes checkout fixes and maintenance updates.

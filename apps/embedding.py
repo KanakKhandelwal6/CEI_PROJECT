@@ -36,10 +36,18 @@ def generate_embeddings(documents, batch_size=50):
 
         batch = documents[i:i + batch_size]
 
-        texts = [
-            doc["title"] + "\n\n" + doc["content"]
-            for doc in batch
-        ]
+        texts  = []
+
+        for doc in batch:
+
+            title = doc["title"]
+
+            if isinstance(title, list):
+                title = "\n".join(title)
+
+            texts.append(
+                title + "\n\n" + doc["content"]
+            )
 
         vectors = model.embed_documents(texts)
 

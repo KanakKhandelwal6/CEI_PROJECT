@@ -1,7 +1,0 @@
-langchain
-faiss-cpu 
-openai 
-streamlit
-requests
-pandas 
-python-dotenv

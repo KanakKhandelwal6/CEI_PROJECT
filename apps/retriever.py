@@ -36,7 +36,7 @@ def search_documents(index, query_vector, top_k=5,threshold = 1.0):
 
     distances, indices = index.search(
         query_vector,
-        top_k
+        20
     )
 
     filtered_indices = []
@@ -48,15 +48,27 @@ def search_documents(index, query_vector, top_k=5,threshold = 1.0):
             filtered_indices.append(idx)
             filtered_distances.append(distance)
 
+
+    filtered_indices = filtered_indices[:top_k]
+    filtered_distances = filtered_indices[:top_k]        
+
     return filtered_distances, filtered_indices
 
 
 def retrieve_context(indices, metadata):
-
+    
     documents = []
+    seen = set()
 
     for idx in indices:
 
-        documents.append(metadata[idx])
+        doc = metadata[idx]
+
+        if doc["id"] in seen:
+            continue
+
+        seen.add(doc["id"])
+
+        documents.append(doc)
 
     return documents

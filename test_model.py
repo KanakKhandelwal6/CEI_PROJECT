@@ -1,8 +1,10 @@
-from google import genai
-from confi import GOOGLE_API_KEY
+from apps.gene import gene_ans
 
-client = genai.Client(api_key=GOOGLE_API_KEY)
+docs = [
+    {
+        "title": "Test",
+        "content": "This is a test document."
+    }
+]
 
-for model in client.models.list():
-    methods = getattr(model, "supported_actions", None)
-    print(model.name, methods)
+print(gene_ans("What is this?", docs))

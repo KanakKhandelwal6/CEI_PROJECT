@@ -19,9 +19,11 @@ def clean_commit_data(commits):
 
             "id": commit["sha"],
 
+            "sha": commit["sha"],
+
             "type": "commit",
 
-            "title": commit["commit"]["message"],
+            "title": commit["commit"]["message"].split("\n")[0],
 
             "content": commit["commit"]["message"],
 
@@ -47,6 +49,8 @@ def clean_pull_request_data(pull_requests):
         cleaned_doc = {
 
             "id": f'pr_{pr["number"]}',
+
+            "number": pr["number"],
 
             "type": "pull_request",
 
@@ -76,6 +80,8 @@ def clean_issue_data(issues):
         cleaned_doc = {
 
             "id": f'issue_{issue["number"]}',
+
+            "number": issue["number"],
 
             "type": "issue",
 

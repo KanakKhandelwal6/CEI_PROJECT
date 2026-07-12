@@ -6,7 +6,7 @@ from apps.retriever import (
     search_documents,
     retrieve_context
 )
-
+from apps.verify import has_relevant_context
 
 def load_css():
     with open("assests/style.css") as f:
@@ -144,8 +144,6 @@ if question:
 
                 query_vector = embed_query(question)
 
-            
-
                 distances, indices = search_documents(
                     index,
                     query_vector,
@@ -154,22 +152,45 @@ if question:
 
                 docs = retrieve_context(indices, metadata)
 
-                answer = gene_ans(question, docs)
-
+                if not has_relevant_context(distances):
+                    answer = " I couldn't find relevant information in the repository."
+                else:
+                    answer = gene_ans(question, docs)
                 st.markdown(answer)  
 
-            with st.expander("Retrieved Documents"):
+            with st.expander("📚 Sources", expanded=False):
 
-               for doc in docs:
+                for doc in docs:
 
-                st.markdown(f"### {doc["title"]}")
 
-                
-                st.write(f"{doc['author']}")
-                st.write(f"{doc['date']}")
-                st.markdown(f"[open on Github]({doc['url']})")
-                st.divider()
+                    if doc["type"] == "commit":
+                        st.markdown("### 📝 Commit")
 
+                        st.write(f"**Title:** {doc['title']}")
+                        st.write(f"**Author:** {doc['author']}")
+                        st.write(f"**Date:** {doc['date']}")
+                        st.write(f"**SHA:** {doc['sha'][:7]}")
+
+                    elif doc["type"] == "pull_request":
+                        st.markdown("### 🔀 Pull Request")
+
+                        st.write(f"**Title:** {doc['title']}")
+                        st.write(f"**Author:** {doc['author']}")
+                        st.write(f"**PR Number:** #{doc['number']}")
+
+                    elif doc["type"] == "issue":
+                        st.markdown("### 🐞 Issue")
+
+                        st.write(f"**Title:** {doc['title']}")
+                        st.write(f"**Author:** {doc['author']}")
+                        st.write(f"**Issue Number:** #{doc['number']}")
+
+                    st.link_button(
+                        "Open on GitHub",
+                        doc["url"]
+                    )
+
+                    st.divider()
                 
 
             st.session_state.messages.append({
