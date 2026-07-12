@@ -1,0 +1,12 @@
+langchain
+faiss-cpu 
+openai 
+streamlit
+requests
+pandas 
+python-dotenv
+google-genai
+numpy
+requests
+sentence-transformer
+
